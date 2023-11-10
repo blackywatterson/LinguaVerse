@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>LinguaVerse</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <nav class="sidenav">
+    <ul>
+      <li><a href="#Search Word">Search Word</a></li>
+      <li><a href="#Phonetics">Phonetic</a></li>
+      <li><a href="#meanings">Meaning</a></li>
+      <li><a href="#Source List">Source</a></li><br>
+      <img src="oop2.png" height="200">
+    </ul>
+  </nav>
+
+  <div class="content">
+    <div class="header">
+      <h1><span style="font-family: 'Nabla', sans-serif; font-size: 36px;">LinguaVerse</span>&trade;</h1>
+      <a href="index2.html" class="header2">Drop Your Words Of The Day Here !</a>
+    </div><br><br>
+
+    <section id="search">
+      <div class="all">
+        <h1>Dictionary and Thesaurus</h1>
+        <form id="search-form" onsubmit="buttonClicked(event)">
+          <input type="text" id="searchData" placeholder="Enter a word" />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </section><br><br>
+
+    <section id="Search Word">
+      <div class="all">
+        <h2>Your Search Word</h2>
+        <p id="Word"></p>
+      </div>
+    </section><br><br>
+
+    <section id="Phonetics">
+      <div class="all">
+        <h2>Phonetics</h2>
+        <div id="phoneticsList"></div>
+      </div>
+    </section><br><br>
+
+    <section id="meanings">
+      <div class="all">
+        <h2>Meanings List</h2>
+        <table id="meaningsTable">
+          <thead>
+            <tr>
+              <th>Part of Speech</th>
+              <th>Definition</th>
+              <th>Example</th>
+              <th>Synonyms</th>
+              <th>Antonyms</th>
+            </tr>
+          </thead>
+          <tbody id="meaningsTableBody"></tbody>
+        </table>
+      </div>
+    </section><br><br>
+
+    <section id="Source List">
+      <div class="all">
+        <h2>Source List</h2>
+        <div id="sourceUrlsList"></div> 
+      </div>
+    </section><br><br>
+  </div>
+  <br><br>
+  <div class="footer">
+    &copy; 2023 LinguaVerse. All rights reserved.
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Get all sidenav links
+      const sidenavLinks = document.querySelectorAll('.sidenav a');
+
+      // Add a click event listener to each link
+      sidenavLinks.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+          event.preventDefault(); // Prevent the default behavior of the link
+
+          // Get the target section's ID from the link's href
+          const targetId = link.getAttribute('href').substring(1); // Remove the '#' character
+
+          // Find the target section by its ID
+          const targetSection = document.getElementById(targetId);
+
+          // Scroll to the target section smoothly
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+<script src="fetchapi.js">
+</script>
+</html>
